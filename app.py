@@ -4,7 +4,7 @@ from groq import Groq
 # 1. Configuração da Página
 st.set_page_config(page_title="Minha IA - Estilo Gemini", page_icon="✨", layout="centered")
 
-# 2. Estilo Customizado (Dark mode é ativado automaticamente pelo Streamlit se o sistema do usuário for escuro)
+# 2. Estilo Customizado
 st.markdown("""
 <style>
     .titulo-centralizado {
@@ -18,7 +18,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 3. Inicializar o cliente Groq de forma segura pegando a chave dos Secrets do Streamlit
+# 3. Inicialização e Chave da API
 if "GROQ_API_KEY" not in st.secrets:
     st.error("⚠️ Por favor, configure sua GROQ_API_KEY nos Secrets do Streamlit.")
     st.stop()
@@ -29,16 +29,42 @@ client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# 5. Interface Inicial (Mostra a saudação apenas se não houver mensagens)
+# 5. Interface Inicial
 if not st.session_state.messages:
-    st.markdown("<h1 class='titulo-centralizado'>Vamos lá, Menezes</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='titulo-centralizado'>Pode falar, Menezes</h1>", unsafe_allow_html=True)
 
 # 6. Exibir o histórico de mensagens
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# 7. Campo de entrada do usuário (fica na parte inferior, como num chat real)
+# ==========================================
+# MENU ESTILO GEMINI (POPOVER)
+# ==========================================
+# Cria um container para o menu ficar logo acima da barra de digitação
+menu_container = st.container()
+
+with menu_container:
+    # Cria o botão "➕" que abre um menu flutuante
+    with st.popover("➕ Opções"):
+        st.markdown("**Peça ao seu assistente**")
+        
+        # Opção 1: Enviar Arquivo
+        arquivo_enviado = st.file_uploader("📎 Enviar arquivos", type=["txt", "pdf", "csv"])
+        if arquivo_enviado:
+            st.success(f"Arquivo {arquivo_enviado.name} carregado! (A lógica de leitura precisa ser implementada)")
+            
+        st.divider()
+        
+        # Opção 2: Criar Imagem (Botão visual)
+        if st.button("🖼️ Criar Imagem (Novo)"):
+            st.info("Para gerar imagens, você precisará integrar uma API como DALL-E ou Midjourney.")
+            
+        # Opção 3: Criar Música (Botão visual)
+        if st.button("🎵 Criar música (Novo)"):
+            st.info("Para gerar músicas, você precisará integrar uma API de áudio.")
+
+# 7. Campo de entrada do usuário
 if prompt := st.chat_input("Peça à sua IA..."):
     # Salva e mostra a mensagem do usuário
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -51,7 +77,7 @@ if prompt := st.chat_input("Peça à sua IA..."):
         full_response = ""
         
         try:
-            # Usando o modelo LLaMA 3 70B da Groq (você pode trocar por 'mixtral-8x7b-32768' se preferir)
+            # Usando o modelo atualizado escolhido
             stream = client.chat.completions.create(
                 model="llama-3.3-70b-versatile",
                 messages=[

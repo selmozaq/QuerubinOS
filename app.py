@@ -90,7 +90,57 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if "log_conversas" not in st.session_state: st.session_state["log_conversas"] = []
+# 🌐 CONEXÃO COM O NEON POSTGRESQL E PERSISTÊNCIA DE HISTÓRICO
+try:
+    conn = st.connection("neon", type="sql")
+except Exception:
+    conn = None
+
+def carregar_historico_neon():
+    if not conn:
+        return []
+    try:
+        # Garante que a tabela existe antes de consultar
+        with conn.session as s:
+            s.execute("""
+                CREATE TABLE IF NOT EXISTS historico_conversas (
+                    id SERIAL PRIMARY KEY,
+                    role VARCHAR(50),
+                    content TEXT,
+                    thought TEXT,
+                    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            """)
+            s.commit()
+            
+        df = conn.query("SELECT role, content, thought FROM historico_conversas ORDER BY id ASC;", ttl=0)
+        conversas = []
+        for row in df.itertuples():
+            conversas.append({
+                "role": row.role,
+                "content": row.content,
+                "thought": row.thought if hasattr(row, 'thought') and row.thought else ""
+            })
+        return conversas
+    except Exception:
+        return []
+
+def salvar_mensagem_neon(role, content, thought=""):
+    if not conn:
+        return
+    try:
+        with conn.session as s:
+            s.execute(
+                "INSERT INTO historico_conversas (role, content, thought) VALUES (:role, :content, :thought);",
+                {"role": role, "content": content, "thought": thought}
+            )
+            s.commit()
+    except Exception:
+        pass
+
+if "log_conversas" not in st.session_state: 
+    st.session_state["log_conversas"] = carregar_historico_neon()
+
 if "key_index" not in st.session_state: st.session_state["key_index"] = 0
 if "historico_telemetria" not in st.session_state: st.session_state["historico_telemetria"] = {}
 if "consumo_tokens" not in st.session_state: st.session_state["consumo_tokens"] = {"prompt": 0, "completion": 0, "total": 0}
@@ -551,7 +601,10 @@ if comando_usuario := st.chat_input("Fale com o Querubin..."):
         midia_para_exibir = bytes_imagem_puros
 
     prompt_decorado = comando_usuario + (f" *(Arquivo: {arquivo_carregado.name})*" if arquivo_carregado else "")
-    st.session_state["log_conversas"].append({"role": "user", "content": prompt_decorado, "imagem_enviada": midia_para_exibir})
+    
+    # Adiciona ao estado e salva no Neon
+    st.session_state["log_conversas"].append({"role": "user", "content": prompt_decorado, "imagem_enviada": midia_para_exibir, "thought": ""})
+    salvar_mensagem_neon("user", prompt_decorado, "")
     
     memorias_recuperadas = resgatar_memorias_por_palavra_chave(comando_usuario, banco_atual)
     contexto_web_vivo = executar_busca_web_tavily(comando_usuario) if verificar_necessidade_de_busca(comando_usuario) else ""
@@ -618,10 +671,14 @@ Responda estruturando pensamentos internos dentro de <thought> e a resposta logo
     if resposta_gerada and "🚨" not in resposta_gerada:
         salvar_declaracao_chatterbot(comando_usuario, resposta_gerada, banco_atual)
         atualizar_humor_sistema(comando_usuario, resposta_gerada, banco_atual)
+        
+        # Adiciona ao estado e salva no Neon
         st.session_state["log_conversas"].append({
             "role": "assistant", "content": resposta_gerada, "thought": pensamento_gerado, 
             "imagem_gerada": url_foto_gerada, "audio_b64": audio_base64_gerado
         })
+        salvar_mensagem_neon("assistant", resposta_gerada, pensamento_gerado)
+        
         st.rerun()
     else: 
         st.error(resposta_gerada)

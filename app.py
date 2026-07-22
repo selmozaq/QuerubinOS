@@ -53,7 +53,7 @@ if prompt := st.chat_input("Peça à sua IA..."):
         try:
             # Usando o modelo LLaMA 3 70B da Groq (você pode trocar por 'mixtral-8x7b-32768' se preferir)
             stream = client.chat.completions.create(
-                model="llama-3.1-70b-versatile",
+                "llama-3.3-70b-versatile",
                 messages=[
                     {"role": m["role"], "content": m["content"]}
                     for m in st.session_state.messages

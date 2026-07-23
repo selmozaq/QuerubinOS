@@ -1,0 +1,20 @@
+{
+    "info": {
+        "versao_core": "3.5.0"
+    },
+    "estado_emocional": {
+        "harmonia": 0.785,
+        "estresse": 0.2
+    },
+    "corpus_aprendido": [
+        {
+            "input": "ola querubin",
+            "response": "# Olá! É um prazer conversar com você! Como posso ajudar ou sobre o que você gostaria de conversar hoje?",
+            "timestamp": "2026-07-22T21:24:22.780113-03:00"
+        },
+        {
+            "input": "[Documento Assimilado: querubinOS.pdf]",
+            "response": "**Resumo do Texto**\n\nO texto descreve a especificação técnica do Querubin OS V3.5.0, que inclui três módulos de expansão visual e sensorial: Diagrama de Voronoi, Deslocamento de Ponto Médio e Projeção de Realidade Aumentada. Esses módulos são utilizados para simular paisagens mentais e fractais, e para projetar essas paisagens em tempo real sobre o ambiente físico do usuário.\n\n**Diretrizes e Conceitos Cruciais**\n\n1. **Diagrama de Voronoi**: é um algoritmo que decompõe um plano bidimensional em regiões celulares com base na distância até um conjunto de pontos de controle chamados sementes. No Querubin OS, o número de sementes simula a atividade analítica do cérebro virtual, e as tonalidades das células orbitam em gradientes suaves de azul e violeta para estados harmônicos ou vermelhos e laranjas para estados reativos de loop.\n2. **Deslocamento de Ponto Médio**: é um algoritmo que simula paisagens fractais naturais através de subdivisão recursiva. O estresse de loop no Querubin atua elevando a rugosidade global e a amplitude do deslocamento, gerando picos caóticos, despenhadeiros pontiagudos e ondas de dados afiadas.\n3. **Projeção de Realidade Aumentada**: é um módulo que projeta a malha do fractal de humor sobre a mesa em tempo real, utilizando a biblioteca Three.js e WebXR/AR.js. A projeção lê o acelerômetro e a câmera do smartphone para plotar a malha do fractal de humor.\n4. **Integração com Streamlit**: o Querubin OS utiliza a biblioteca nativa de componentes do Streamlit para inicializar a ponte de realidade mista e projetar a malha do fractal de humor sobre o ambiente físico do usuário.\n5. **Parâmetros de Distorção**: os parâmetros de distorção são ajustados de acordo com o humor atual do Querubin OS, incluindo a escala y, cor e rugosidade.\n\n**Código Integrável**\n\nO texto fornece código integrável para os três módulos:\n\n1. **Gerador Voronoi**: `def render_voronoi_humor(width, height, num_cells, harmony, stress):`\n2. **Deslocamento de Ponto Médio**: `def midpoint_displacement(start, end, roughness, vertical_displacement, iterations):`\n3. **Projeção de Realidade Aumentada**: `def render_portal_realidade_aumentada(harmony, stress):`\n\n**Conclusão**\n\nO Querubin OS V3.5.0 é um sistema que combina algoritmos de expansão visual e sensorial para simular paisagens mentais e fractais, e projetar essas paisagens em tempo real sobre o ambiente físico do usuário. O sistema utiliza a biblioteca Three.js e WebXR/AR.js para projetar a malha do fractal de humor sobre a mesa em tempo real, e a biblioteca nativa de componentes do Streamlit para inicializar a ponte de realidade mista."
+        }
+    ]
+}

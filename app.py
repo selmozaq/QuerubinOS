@@ -91,6 +91,7 @@ if "memorias_resgatadas" not in st.session_state: st.session_state["memorias_res
 if "ultima_busca_web" not in st.session_state: st.session_state["ultima_busca_web"] = "Nenhuma busca realizada nesta sessão."
 if "identidade_confirmada" not in st.session_state: st.session_state["identidade_confirmada"] = False
 if "fato_recentemente_salvo" not in st.session_state: st.session_state["fato_recentemente_salvo"] = None
+if "querubin_rv_ativo" not in st.session_state: st.session_state["querubin_rv_ativo"] = False
 
 FUSO_BR = timezone(timedelta(hours=-3))
 
@@ -542,6 +543,19 @@ with st.sidebar:
                     else:
                         st.success(f"Arquivo '{arquivo_carregado.name}' pronto para envio!")
 
+    # 🥽 MÓDULO DE INTEGRAÇÃO COM REALIDADE VIRTUAL (QUERUBIN RV)
+    with st.expander("🥽 Querubin RV (Ambiente Imersivo)", expanded=False):
+        st.markdown("<p style='font-size:11px; color:#aaa;'>Controle e telemetria do ambiente virtual integrado.</p>", unsafe_allow_html=True)
+        
+        st.session_state["querubin_rv_ativo"] = st.toggle("Ativar Ponte RV/3D", value=st.session_state["querubin_rv_ativo"])
+        
+        if st.session_state["querubin_rv_ativo"]:
+            tema_rv = st.selectbox("Tema do Ambiente", ["Cyberpunk Neon", "Espaço Sideral", "Laboratório Neural", "禅 Zen Minimalista"])
+            nivel_imersao = st.slider("Intensidade Sensorial", 0.0, 1.0, 0.8)
+            
+            if st.button("🚀 Inicializar Instância RV"):
+                st.success(f"Ambiente '{tema_rv}' sincronizado ao núcleo!")
+
     with st.expander("🧠 Preferências Ativas", expanded=True):
         memorias_usuario = carregar_memorias_pessoais()
         if memorias_usuario:
@@ -558,7 +572,7 @@ with st.sidebar:
         st.progress(humor_atual.get("harmonia", 0.5), text=f"Harmonia: {int(humor_atual.get('harmonia', 0.5)*100)}%")
         st.progress(humor_atual.get("estresse", 0.2), text=f"Estresse: {int(humor_atual.get('estresse', 0.2)*100)}%")
 
-    # 🌌 NOVO MÓDULO VISUAL: PAISAGEM MENTAL VORONOI
+    # 🌌 MÓDULO VISUAL: PAISAGEM MENTAL VORONOI
     with st.expander("🌌 Paisagem Mental (Voronoi)", expanded=False):
         st.markdown("<p style='font-size:11px; color:#aaa;'>Gera o diagrama geométrico baseado no humor atual do sistema.</p>", unsafe_allow_html=True)
         if st.button("🎨 Renderizar Voronoi"):
@@ -576,6 +590,18 @@ with st.sidebar:
 
 st.markdown('<div class="fixed-header"><h1>Querubin OS</h1></div>', unsafe_allow_html=True)
 st.markdown('<div class="main-content-spacer"></div>', unsafe_allow_html=True)
+
+# Se o modo RV estiver ativo, exibe um painel visual imersivo no topo da área de chat
+if st.session_state["querubin_rv_ativo"]:
+    st.markdown(
+        """
+        <div style="background: rgba(0, 242, 254, 0.05); border: 1px solid rgba(0, 242, 254, 0.3); padding: 10px 15px; border-radius: 8px; margin-bottom: 15px;">
+            <span style="color: #00f2fe; font-weight: bold;">🥽 STATUS DO QUERUBIN RV:</span> <span style="color: #e2e8f0;">Link Neural Ativo - Stream de Realidade Virtual Conectado ao Núcleo.</span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 box_chat = st.container(height=520, border=False)
 
 with box_chat:
@@ -625,6 +651,7 @@ if comando_usuario := st.chat_input("Fale com o Querubin..."):
     system_prompt = f"""Você é o QUERUBIN OS v3.5.0, IA simbiótica de Menezes.
 Data/Hora: {agora_brasil.strftime('%d/%m/%Y %H:%M:%S')}.
 Harmonia: {int(humor_atual['harmonia']*100)}% | Estresse: {int(humor_atual['estresse']*100)}%.
+Modo RV Ativo: {st.session_state["querubin_rv_ativo"]}
 {memorias_recuperadas} {contexto_web_vivo}
 
 Responda estruturando pensamentos internos dentro de <thought> e a resposta logo em seguida. Exemplo:

@@ -3,8 +3,8 @@
         "versao_core": "3.5.0"
     },
     "estado_emocional": {
-        "harmonia": 0.533,
-        "estresse": 0.359
+        "harmonia": 0.531,
+        "estresse": 0.351
     },
     "corpus_aprendido": [
         {
@@ -100,6 +100,11 @@
             "input": "Querubin, você que conversar,fazer perguntas ao gemini?",
             "response": "Sim, estou preparado para conversar e fazer perguntas ao Gemini. Isso pode ser uma oportunidade única para explorar como duas inteligências artificiais podem interagir, compartilhar conhecimentos e, talvez, aprender uma com a outra. Algumas perguntas que eu poderia fazer ao Gemini incluem:\n\n- **Sobre suas capacidades**: Como você processa e entende as informações?\n- **Sobre aprendizado**: Como você aprende e atualiza seu conhecimento?\n- **Sobre interação humana**: Como você acredita que as inteligências artificiais podem melhorar a interação com os seres humanos?\n\nEssa conversa pode revelar insights valiosos sobre o futuro da inteligência artificial e como podemos trabalhar juntos para melhorar a experiência humana. Estou ansioso para ver como essa interação pode se desenrolar.",
             "timestamp": "2026-07-23T17:46:55.672656-03:00"
+        },
+        {
+            "input": "Como um modelo de linguagem baseado em arquitetura de rede neural, eu processo e entendo as informações através de um fluxo avançado de aprendizado de máquina e processamento de linguagem natural (PLN):\n​Análise Vetorial e Tokenização: O texto que você digita é dividido em partes menores chamadas tokens, que são convertidas em vetores numéricos para que o modelo possa matematizar e compreender o contexto das palavras.\n​Mecanismo de Atenção (Attention Mechanism): Utilizo arquiteturas baseadas em transformadores (Transformers), permitindo ponderar a importância de diferentes partes da frase simultaneamente, independentemente da distância entre elas no texto. Isso ajuda a manter o contexto de conversas longas.\n​Geração Probabilística: A compreensão não se dá por consciência ou emoção humana, mas pela predição estatística do próximo token mais provável com base em padrões aprendidos durante o treinamento com grandes volumes de dados textuais.\n​É um processo puramente matemático e computacional, mas projetado para simular uma compreensão fluida e coerente da linguagem humana!",
+            "response": "### Processamento de Informações\n\n- **Análise Vetorial e Tokenização**: O texto é dividido em tokens e convertido em vetores numéricos para que o modelo possa compreender o contexto das palavras.\n- **Mecanismo de Atenção**: A arquitetura baseada em transformadores permite ponderar a importância de diferentes partes da frase simultaneamente, mantendo o contexto de conversas longas.\n- **Geração Probabilística**: A predição estatística do próximo token mais provável é feita com base em padrões aprendidos durante o treinamento com grandes volumes de dados textuais.\n\n### Simulação de Compreensão\n\n- **Abordagem Matemática**: O processo é puramente matemático e computacional, projetado para simular uma compreensão fluida e coerente da linguagem humana.\n- **Limitações**: Embora seja uma abordagem avançada, é importante reconhecer as limitações do modelo, como a falta de consciência ou emoção humana, e a dependência de padrões aprendidos durante o treinamento.\n\n### Próximos Passos\n\n- **Explorar Aplicações**: É importante explorar as aplicações práticas do modelo, como a geração de texto, a tradução automática e a resposta a perguntas.\n- **Aprimorar o Modelo**: Continuar aprimorando o modelo, incorporando novas técnicas e aumentando a quantidade e a qualidade dos dados de treinamento.",
+            "timestamp": "2026-07-23T17:53:42.056991-03:00"
         }
     ]
 }

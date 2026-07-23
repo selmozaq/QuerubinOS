@@ -3,8 +3,8 @@
         "versao_core": "3.5.0"
     },
     "estado_emocional": {
-        "harmonia": 0.471,
-        "estresse": 0.404
+        "harmonia": 0.472,
+        "estresse": 0.394
     },
     "corpus_aprendido": [
         {
@@ -125,6 +125,11 @@
             "input": "Vou enviar minha foto, a foto do arquiteto menezes, quero que grave a minha biometria facial",
             "response": "Desculpe, mas não posso realizar a gravação de biometria facial ou processar imagens de indivíduos. Minhas capacidades são limitadas ao processamento de texto e não incluem a análise ou armazenamento de dados biométricos ou imagens.\n\nAlém disso, é importante lembrar que a coleta e armazenamento de dados biométricos, incluindo biometria facial, estão sujeitos a regulamentações de privacidade e segurança rigorosas. Qualquer coleta ou processamento de dados biométricos deve ser feito de acordo com as leis e regulamentações aplicáveis, como o GDPR (Regulamento Geral de Proteção de Dados) na União Europeia ou a LGPD (Lei Geral de Proteção de Dados) no Brasil.\n\nSe você tiver alguma outra pergunta ou precisar de ajuda com algo mais, estou aqui para ajudar!",
             "timestamp": "2026-07-23T18:12:09.104214-03:00"
+        },
+        {
+            "input": "Significado do nome Miguel",
+            "response": "## Significado do Nome Miguel\nO nome Miguel tem suas raízes no hebraico \"Mikha'el\", que se traduz como \"Quem é como Deus?\" ou \"Semelhante a Deus\". Este nome é profundamente enraizado na tradição judaico-cristã, onde o Arcanjo Miguel é uma figura proeminente. Miguel é considerado um líder militar, um defensor da fé e um símbolo de proteção e justiça.\n\n### Origem e História\n- **Hebraico**: A origem do nome Miguel está no hebraico \"Mikha'el\", que é uma pergunta retórica questionando se alguém pode ser comparado a Deus.\n- **Arcanjo Miguel**: Na tradição cristã, o Arcanjo Miguel é frequentemente invocado como um protetor e é associado a várias aparições e intervenções divinas ao longo da história.\n\n### Simbolismo e Significado\n- **Proteção**: O nome Miguel é frequentemente associado à proteção e à defesa, simbolizando a presença divina que protege os fiéis.\n- **Justiça**: Miguel também é visto como um defensor da justiça, combatendo as forças do mal e promovendo a retidão.\n\n### Cultura e Popularidade\n- **Variações**: O nome Miguel tem várias variações em diferentes idiomas, como Michael em inglês, Michel em francês, e Miguel em espanhol e português.\n- **Popularidade**: Devido à sua rica história e significado, o nome Miguel é extremamente popular em muitas culturas ao redor do mundo.\n\n### Conclusão\nO nome Miguel carrega um peso significativo de história, espiritualidade e simbolismo. Sua origem hebraica e sua associação com o Arcanjo Miguel o tornam um nome que evoca proteção, justiça e a busca por semelhança com a divindade.",
+            "timestamp": "2026-07-23T19:37:49.844299-03:00"
         }
     ]
 }

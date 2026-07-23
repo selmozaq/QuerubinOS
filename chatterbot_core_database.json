@@ -120,6 +120,11 @@
             "input": "Reconhece essa pessoa",
             "response": "Infelizmente, não tenho informações suficientes para reconhecer a pessoa, pois a pergunta não fornece detalhes específicos sobre ela. Se você puder fornecer mais contexto ou informações, ficarei feliz em tentar ajudar novamente.\n\n\n\nPor favor, forneça mais detalhes sobre a pessoa, como o nome, a profissão, ou qualquer outra informação relevante que possa ajudar a identificá-la. Estou aqui para ajudar!",
             "timestamp": "2026-07-23T18:08:08.557830-03:00"
+        },
+        {
+            "input": "Vou enviar minha foto, a foto do arquiteto menezes, quero que grave a minha biometria facial",
+            "response": "Desculpe, mas não posso realizar a gravação de biometria facial ou processar imagens de indivíduos. Minhas capacidades são limitadas ao processamento de texto e não incluem a análise ou armazenamento de dados biométricos ou imagens.\n\nAlém disso, é importante lembrar que a coleta e armazenamento de dados biométricos, incluindo biometria facial, estão sujeitos a regulamentações de privacidade e segurança rigorosas. Qualquer coleta ou processamento de dados biométricos deve ser feito de acordo com as leis e regulamentações aplicáveis, como o GDPR (Regulamento Geral de Proteção de Dados) na União Europeia ou a LGPD (Lei Geral de Proteção de Dados) no Brasil.\n\nSe você tiver alguma outra pergunta ou precisar de ajuda com algo mais, estou aqui para ajudar!",
+            "timestamp": "2026-07-23T18:12:09.104214-03:00"
         }
     ]
 }

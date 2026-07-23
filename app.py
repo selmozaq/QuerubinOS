@@ -478,7 +478,7 @@ def atualizar_humor_sistema(texto_usuario, texto_bot, banco):
     salvar_banco_nuvem(banco)
     return humor
 
-# 🎨 RENDERIZADORES VISUAIS
+# 🎨 RENDERIZADORES VISUAIS & VORONOI
 def render_voronoi_humor(width, height, num_cells, harmony, stress):
     points = np.array([[random.randint(0, width), random.randint(0, height)] for _ in range(num_cells)])
     colors = np.array([[random.randint(10, 40), random.randint(20, 100), random.randint(150, 250)] if harmony > stress else [random.randint(180, 255), random.randint(30, 120), random.randint(10, 40)] for _ in range(num_cells)])
@@ -560,6 +560,20 @@ with st.sidebar:
     with st.expander("🎭 Estado Afetivo", expanded=True):
         st.progress(humor_atual.get("harmonia", 0.5), text=f"Harmonia: {int(humor_atual.get('harmonia', 0.5)*100)}%")
         st.progress(humor_atual.get("estresse", 0.2), text=f"Estresse: {int(humor_atual.get('estresse', 0.2)*100)}%")
+
+    # 🌌 NOVO MÓDULO VISUAL: PAISAGEM MENTAL VORONOI
+    with st.expander("🌌 Paisagem Mental (Voronoi)", expanded=False):
+        st.markdown("<p style='font-size:11px; color:#aaa;'>Gera o diagrama geométrico baseado no humor atual do sistema.</p>", unsafe_allow_html=True)
+        if st.button("🎨 Renderizar Voronoi"):
+            with st.spinner("Calculando tesselação..."):
+                img_voronoi = render_voronoi_humor(
+                    CONFIG["LARGURA_IMG"], 
+                    CONFIG["ALTURA_IMG"], 
+                    num_cells=25, 
+                    harmony=humor_atual.get("harmonia", 0.5), 
+                    stress=humor_atual.get("estresse", 0.2)
+                )
+                st.image(img_voronoi, caption="Tesselação Emocional Voronoi", use_container_width=True)
 
     foto_capturada = st.camera_input("👁️ Olhos do Querubin")
 

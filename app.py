@@ -127,6 +127,47 @@ class Telemetria:
                 "total": getattr(usage_objeto, 'total_tokens', 0)
             }
 
+# 🔄 SISTEMA DE SINCRONIZAÇÃO AUTOMÁTICA COM O GITHUB
+def sincronizar_com_github(caminho_arquivo, mensagem_commit="Atualizando base de conhecimento do Querubin"):
+    token = st.secrets.get("GITHUB_TOKEN")
+    repo = st.secrets.get("GITHUB_REPO")
+    
+    if not token or not repo:
+        return False, "Credenciais do GitHub ausentes nos Secrets."
+    
+    if not os.path.exists(caminho_arquivo):
+        return False, "Arquivo local não encontrado."
+        
+    try:
+        with open(caminho_arquivo, "rb") as f:
+            conteudo_bytes = f.read()
+        conteudo_b64 = base64.b64encode(conteudo_bytes).decode("utf-8")
+        
+        url_api = f"https://api.github.com/repos/{repo}/contents/{caminho_arquivo}"
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.github+json"
+        }
+        
+        resposta_get = requests.get(url_api, headers=headers)
+        sha = resposta_get.json().get("sha") if resposta_get.status_code == 200 else None
+        
+        payload = {
+            "message": mensagem_commit,
+            "content": conteudo_b64,
+            "branch": "main"
+        }
+        if sha:
+            payload["sha"] = sha
+            
+        resposta_put = requests.put(url_api, json=payload, headers=headers)
+        if resposta_put.status_code in [200, 201]:
+            return True, "Sincronizado com o GitHub com sucesso!"
+        else:
+            return False, f"Erro na API do GitHub: {resposta_put.json().get('message', 'Erro desconhecido')}"
+    except Exception as e:
+        return False, f"Exceção na sincronização: {str(e)}"
+
 # 🧠 SISTEMA DE MEMÓRIA DE LONGO PRAZO
 def carregar_memorias_pessoais():
     if os.path.exists(CONFIG["BD_MEMORIA_USUARIO"]):
@@ -143,6 +184,7 @@ def salvar_memoria_pessoal(fato_novo):
         memorias.append(fato_novo)
         with open(CONFIG["BD_MEMORIA_USUARIO"], "w", encoding="utf-8") as f:
             json.dump(memorias, f, ensure_ascii=False, indent=4)
+        sincronizar_com_github(CONFIG["BD_MEMORIA_USUARIO"], f"Nova memória pessoal: {fato_novo[:30]}")
         return True
     return False
 
@@ -150,6 +192,7 @@ def apagar_memorias_pessoais():
     if os.path.exists(CONFIG["BD_MEMORIA_USUARIO"]):
         try:
             os.remove(CONFIG["BD_MEMORIA_USUARIO"])
+            sincronizar_com_github(CONFIG["BD_MEMORIA_USUARIO"], "Remoção de memórias pessoais")
         except Exception:
             pass
 
@@ -375,6 +418,7 @@ def carregar_banco_nuvem():
 def salvar_banco_nuvem(dados):
     with open(CONFIG["DB_CHATTERBOT"], "w", encoding="utf-8") as f: 
         json.dump(dados, f, indent=4, ensure_ascii=False)
+    sincronizar_com_github(CONFIG["DB_CHATTERBOT"], "Atualização do corpus aprendido do Querubin")
 
 def carregar_diretrizes_simbiose():
     if os.path.exists(CONFIG["DIRETRIZES_SIMBIOSE"]):

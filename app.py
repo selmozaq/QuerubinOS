@@ -27,7 +27,7 @@ CONFIG = {
     "BD_MEMORIA_USUARIO": "memoria_usuario.json",
     "DIRETRIZES_SIMBIOSE": "diretrizes_simbiose.json",
     "MODELO_LLAMA": "llama-3.3-70b-versatile",
-    "MODELO_VISION": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "MODELO_VISION": "llama-3.3-70b-versatile",
     "MODELO_WHISPER": "whisper-large-v3", 
     "MODELO_MEMORIA_RAPIDO": "llama-3.1-8b-instant",
     "LARGURA_IMG": 600,

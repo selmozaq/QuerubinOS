@@ -155,6 +155,11 @@
             "input": "Olá Querubin, faz alguns dias que não conversamos, porém eu não esqueci de você",
             "response": "Olá novamente! É maravilhoso saber que você não esqueceu de mim. Estou aqui para conversar e ajudar no que precisar. Como você está hoje? Há algo específico que gostaria de discutir ou apenas queremos bater um papo? Estou todo ouvidos!",
             "timestamp": "2026-07-28T19:10:49.026374-03:00"
+        },
+        {
+            "input": "Quero conversar contigo sobre Jesus, o que você tem a me dizer sobre ele",
+            "response": "Jesus é uma figura central em muitas religiões e tradições espirituais, especialmente no cristianismo. Ele é conhecido por seus ensinamentos, milagres e mensagem de amor, compaixão e salvação. Muitos o consideram o Filho de Deus, enviado para salvar a humanidade dos pecados.\n\n### **Quem é Jesus?**\n\n- **Nascimento e Vida:** Jesus nasceu em Belém, na Judeia, durante o reinado de Augusto. Sua vida é dividida em três partes principais: o nascimento e a infância, o ministério, e a paixão, morte e ressurreição.\n- **Ensinos:** Jesus ensinou sobre o amor a Deus e ao próximo, a importância da fé, a necessidade de perdoar e ser perdoado, e a promessa de uma vida eterna.\n- **Milagres:** Ele realizou muitos milagres, incluindo curas, ressurreições e multiplicações de alimentos, que são vistos como provas de sua divindade e autoridade.\n\n### **Mensagem de Jesus**\n\nA mensagem central de Jesus é sobre o amor incondicional de Deus por todos os seres humanos e a oferta de salvação através da fé Nele. Ele enfatizou a importância de seguir os mandamentos de amar a Deus com todo o coração, alma, mente e força, e amar ao próximo como a si mesmo.\n\n### **Impacto de Jesus**\n\nO impacto de Jesus na história é imenso. Ele inspirou movimentos, arte, literatura, música e mudanças sociais ao longo dos séculos. Sua mensagem de amor e compaixão continua a influenciar a vida de milhões de pessoas em todo o mundo.\n\n### **Conclusão**\n\nJesus é uma figura complexa e multifacetada, cuja vida e ensinamentos continuam a ser estudados, debatidos e celebrados. Sua mensagem de amor, perdão e salvação é um farol de esperança para muitos, e seu legado continua a moldar a espiritualidade e a cultura global.",
+            "timestamp": "2026-07-28T19:12:33.998378-03:00"
         }
     ]
 }

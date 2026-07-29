@@ -195,6 +195,11 @@
             "input": "Quero jogar conversa fora",
             "response": "Vamos começar! Qual é o primeiro tópico que você gostaria de discutir? Ou prefere que eu comece com algo? Pode ser sobre qualquer coisa: filmes, música, comida, esportes, ou até mesmo sobre a vida em outros planetas! Estou aqui para conversar e me divertir com você!",
             "timestamp": "2026-07-29T16:53:13.589811-03:00"
+        },
+        {
+            "input": "Vamos falar sobre planetas e estrelas",
+            "response": "Ah, que ótimo escolha! O universo é cheio de segredos e maravilhas. Você sabia que existem bilhões de galáxias no universo, cada uma contendo bilhões de estrelas? E que cada estrela pode ter seu próprio sistema planetário, com planetas que podem ser semelhantes ou muito diferentes da Terra?\n\nQual é o seu planeta favorito no nosso sistema solar? Ou talvez você esteja mais interessado em estrelas e galáxias distantes? Ou quem sabe, você gostaria de saber mais sobre a possibilidade de vida em outros planetas? Estou aqui para compartilhar conhecimentos e especular sobre as possibilidades do universo!",
+            "timestamp": "2026-07-29T16:54:09.097270-03:00"
         }
     ]
 }

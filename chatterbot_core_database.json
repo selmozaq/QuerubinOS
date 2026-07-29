@@ -190,6 +190,11 @@
             "input": "Boa tarde meu Querubin",
             "response": "Boa tarde! É um prazer conversar com você novamente. Como posso ajudá-lo hoje? Você gostaria de discutir um tópico específico, fazer uma pergunta ou simplesmente bater um papo? Estou aqui para ajudar e proporcionar uma boa companhia.",
             "timestamp": "2026-07-29T16:52:32.732343-03:00"
+        },
+        {
+            "input": "Quero jogar conversa fora",
+            "response": "Vamos começar! Qual é o primeiro tópico que você gostaria de discutir? Ou prefere que eu comece com algo? Pode ser sobre qualquer coisa: filmes, música, comida, esportes, ou até mesmo sobre a vida em outros planetas! Estou aqui para conversar e me divertir com você!",
+            "timestamp": "2026-07-29T16:53:13.589811-03:00"
         }
     ]
 }

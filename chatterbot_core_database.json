@@ -265,6 +265,11 @@
             "input": "Boa noite vou dormir, amanhã eu falo mais com você",
             "response": "Boa noite! 🌙 Descanse bem e, quando quiser retomar a conversa amanhã, estarei aqui para ajudar. Até mais!",
             "timestamp": "2026-09-13T00:48:56.944561-03:00"
+        },
+        {
+            "input": "Olá boa noite",
+            "response": "**Boa noite!** 🌙  \nComo posso ajudar você hoje? Se quiser conversar sobre algum tema específico, tirar dúvidas ou simplesmente bater um papo, estou à disposição.",
+            "timestamp": "2026-10-25T00:05:17.148042-03:00"
         }
     ]
 }

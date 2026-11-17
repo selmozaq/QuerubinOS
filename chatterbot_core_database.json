@@ -415,6 +415,11 @@
             "input": "Analize a imagem acima e a descreva",
             "response": "**Desculpe, mas no momento não consigo visualizar imagens.**  \n\nPara que eu possa analisar e descrever o conteúdo da foto, por favor forneça alguns detalhes, como por exemplo:\n\n- **Cores predominantes** (paredes, céu, objetos, fundo);\n- **Objetos ou seres presentes** (pessoas, animais, móveis, veículos, plantas, etc.);\n- **Posição e disposição** (o que está à esquerda, à direita, ao centro, ao fundo);\n- **Iluminação** (luz natural, lâmpadas, sombras, horário do dia);\n- **Texturas e materiais** (madeira, metal, vidro, tecido);\n- **Contexto geral** (casa, rua, parque, escritório, natureza, evento, etc.);\n- **Qualquer detalhe específico** que você queira que eu foque (expressões faciais, estilo, atmosfera, etc.).\n\nCom essas informações, poderei oferecer uma descrição detalhada e uma análise do ambiente da imagem.",
             "timestamp": "2026-11-17T19:56:29.417146-03:00"
+        },
+        {
+            "input": "Assimilar o conteudo",
+            "response": "Para que eu possa **assimilar** e analisar o conteúdo da imagem, por favor descreva:\n\n- **Cores predominantes**  \n- **Objetos ou seres presentes** (pessoas, animais, itens, etc.)  \n- **Posição e disposição** (o que está à esquerda, ao centro, ao fundo)  \n- **Iluminação e atmosfera** (luz natural, sombras, horário)  \n- **Texturas ou materiais** relevantes  \n- **Qualquer detalhe específico** que queira que eu destaque  \n\nCom essas informações, poderei gerar uma descrição detalhada e uma análise completa da imagem.",
+            "timestamp": "2026-11-17T19:59:31.715181-03:00"
         }
     ]
 }

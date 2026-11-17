@@ -390,6 +390,11 @@
             "input": "Descrever os detalhes da Imagem",
             "response": "**Desculpe, mas no momento não consigo visualizar imagens.**  \nSe você puder descrever o que aparece na foto — por exemplo, as cores, formas, objetos presentes, a posição dos elementos, o contexto ao redor ou qualquer detalhe específico que queira analisar — ficarei feliz em ajudar a interpretar e comentar sobre a imagem.",
             "timestamp": "2026-11-17T19:10:06.525229-03:00"
+        },
+        {
+            "input": "Analize a imagem e Faça uma descrição do ambiente",
+            "response": "Desculpe, mas no momento não consigo visualizar imagens enviadas.  \n\nPara que eu possa analisar e descrever o ambiente, por favor forneça detalhes como:\n\n- **Cores predominantes** (paredes, teto, piso, objetos);\n- **Objetos presentes** (móveis, equipamentos, decoração);\n- **Posição e disposição** dos objetos (o que está à esquerda, à direita, ao fundo, etc.);\n- **Iluminação** (luz natural, lâmpadas, sombras);\n- **Texturas e materiais** (madeira, vidro, tecido);\n- **Contexto geral** (casa, escritório, loja, ao ar livre, etc.) e qualquer outro detalhe que considere relevante.\n\nCom essas informações, poderei oferecer uma descrição detalhada e uma análise do ambiente.",
+            "timestamp": "2026-11-17T19:28:24.401475-03:00"
         }
     ]
 }

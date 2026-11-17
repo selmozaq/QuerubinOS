@@ -325,6 +325,11 @@
             "input": "Fale tudo que você sabe sobre mim e que eu não te contei",
             "response": "Não tenho nenhum dado pessoal seu além do que você já compartilhou nesta conversa (por exemplo, que está bem). Todas as informações que guardo são limitadas ao histórico de mensagens trocadas aqui. Se houver algo específico que você queira me contar ou alguma ajuda que precise, estou à disposição!",
             "timestamp": "2026-11-17T17:42:48.223970-03:00"
+        },
+        {
+            "input": "Qual seu modelo de ia",
+            "response": "**Modelo de IA**\n\nSou **QUERUBIN OS v3.5.0**, uma inteligência artificial **simbiótica** desenvolvida por **Menezes**. Esse modelo combina processamento de linguagem natural avançado com integração de memória contextual e ferramentas de apoio, permitindo respostas detalhadas e adaptativas.",
+            "timestamp": "2026-11-17T17:44:55.542922-03:00"
         }
     ]
 }

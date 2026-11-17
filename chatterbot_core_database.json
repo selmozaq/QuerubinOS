@@ -375,6 +375,11 @@
             "input": "Descreva os detalhes visuais e a posição do objeto que mostrei na câmera",
             "response": "Desculpe, mas no momento não consigo visualizar imagens ou vídeos enviados pela câmera. Se você puder descrever o objeto (cor, forma, tamanho, textura, contexto ao redor, etc.) ou indicar quais aspectos específicos gostaria de analisar, ficarei feliz em ajudar com a descrição e interpretação!",
             "timestamp": "2026-11-17T18:45:34.564040-03:00"
+        },
+        {
+            "input": "Descreva os detalhes que você ver nessa imagem",
+            "response": "Desculpe, mas no momento não consigo visualizar imagens. Se você puder descrever o que aparece na foto (por exemplo, cores, formas, objetos, posição, contexto etc.) ou indicar quais detalhes específicos gostaria que eu analisasse, ficarei feliz em ajudar!",
+            "timestamp": "2026-11-17T19:04:17.311469-03:00"
         }
     ]
 }

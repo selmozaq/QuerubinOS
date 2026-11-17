@@ -380,6 +380,11 @@
             "input": "Descreva os detalhes que você ver nessa imagem",
             "response": "Desculpe, mas no momento não consigo visualizar imagens. Se você puder descrever o que aparece na foto (por exemplo, cores, formas, objetos, posição, contexto etc.) ou indicar quais detalhes específicos gostaria que eu analisasse, ficarei feliz em ajudar!",
             "timestamp": "2026-11-17T19:04:17.311469-03:00"
+        },
+        {
+            "input": "O que você vê na imagem",
+            "response": "Desculpe, mas no momento não consigo visualizar imagens. Se você puder descrever o que aparece na foto (por exemplo, cores, formas, objetos, posição, contexto etc.) ou indicar quais detalhes específicos gostaria que eu analisasse, ficarei feliz em ajudar!",
+            "timestamp": "2026-11-17T19:04:58.183816-03:00"
         }
     ]
 }

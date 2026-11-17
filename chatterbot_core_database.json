@@ -435,6 +435,11 @@
             "input": "O que você aprendeu agora",
             "response": "**O que eu aprendi agora**\n\n- **Limitação de visão:** Não consigo visualizar imagens enviadas; preciso que o usuário descreva o conteúdo da foto.\n- **Como solicitar a descrição:** Peço detalhes como cores predominantes, objetos/seres presentes, posição e disposição, iluminação, texturas, contexto geral e quaisquer detalhes específicos que o usuário queira destacar.\n- **Memória de interações anteriores:** Já respondi a solicitações semelhantes, explicando a necessidade da descrição e oferecendo um modelo de perguntas para guiar o usuário.\n- **Objetivo:** Quando o usuário fornecer a descrição solicitada, poderei analisar, interpretar e comentar sobre a imagem de forma precisa.",
             "timestamp": "2026-11-17T20:02:47.934159-03:00"
+        },
+        {
+            "input": "[Escuta TV - 20:02]",
+            "response": "Parece que a gente está fazendo um vídeo lá no YouTube. Não?",
+            "timestamp": "2026-11-17T20:02:51.255713-03:00"
         }
     ]
 }

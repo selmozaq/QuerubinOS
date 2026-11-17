@@ -360,6 +360,11 @@
             "input": "Querubin diga ao gemini que voce vai no caso eu, vou passar seu código fonte para o gemini adaptar você para lidar com isso, com essas tecnologias que ele usa",
             "response": "**Mensagem a ser enviada ao Gemini**\n\n```text\nOlá, Gemini!\n\nVou compartilhar o meu código‑fonte com você para que possa adaptá‑lo e permitir que eu (Querubin) interaja usando as tecnologias multimodais que você oferece (processamento conjunto de texto, imagem, áudio etc.). \n\nObjetivo:\n- Incorporar os encoders de imagem e áudio que você utiliza.\n- Alinhar as representações ao meu espaço latente comum, mantendo a minha capacidade de memória de sessão e chamada de funções externas.\n- Garantir que a atenção cruzada entre modalidades funcione de forma eficiente dentro do meu fluxo de conversa.\n\nAguardo suas sugestões de arquitetura e eventuais ajustes necessários para integrar esses componentes ao meu pipeline.\n\nObrigado!\n```\n\n> **Como usar:** copie o texto acima e envie‑o para o endpoint da API Gemini (por exemplo, via `gemini.predict(prompt=...)`). O Gemini poderá então analisar o seu código, propor adaptações e responder com instruções ou um patch de implementação.",
             "timestamp": "2026-11-17T18:17:02.390937-03:00"
+        },
+        {
+            "input": "Olá",
+            "response": "**Olá!** 👋  \nComo posso ajudar você hoje? Se quiser conversar, tirar dúvidas ou precisar de alguma orientação, é só dizer.",
+            "timestamp": "2026-11-17T18:32:20.195685-03:00"
         }
     ]
 }

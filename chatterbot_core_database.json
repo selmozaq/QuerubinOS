@@ -440,6 +440,11 @@
             "input": "[Escuta TV - 20:02]",
             "response": "Parece que a gente está fazendo um vídeo lá no YouTube. Não?",
             "timestamp": "2026-11-17T20:02:51.255713-03:00"
+        },
+        {
+            "input": "[Escuta TV - 20:04]",
+            "response": "Parece que a gente está fazendo um vídeo lá no YouTube. Não?",
+            "timestamp": "2026-11-17T20:04:16.642390-03:00"
         }
     ]
 }

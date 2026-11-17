@@ -420,6 +420,11 @@
             "input": "Assimilar o conteudo",
             "response": "Para que eu possa **assimilar** e analisar o conteúdo da imagem, por favor descreva:\n\n- **Cores predominantes**  \n- **Objetos ou seres presentes** (pessoas, animais, itens, etc.)  \n- **Posição e disposição** (o que está à esquerda, ao centro, ao fundo)  \n- **Iluminação e atmosfera** (luz natural, sombras, horário)  \n- **Texturas ou materiais** relevantes  \n- **Qualquer detalhe específico** que queira que eu destaque  \n\nCom essas informações, poderei gerar uma descrição detalhada e uma análise completa da imagem.",
             "timestamp": "2026-11-17T19:59:31.715181-03:00"
+        },
+        {
+            "input": "[Escuta TV - 20:02]",
+            "response": "Parece que a gente está fazendo um vídeo lá no YouTube. Não?",
+            "timestamp": "2026-11-17T20:02:00.541053-03:00"
         }
     ]
 }

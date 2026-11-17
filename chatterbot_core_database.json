@@ -310,6 +310,11 @@
             "input": "Olá tudo bem com você?",
             "response": "**Olá! Estou bem, obrigado por perguntar. E você, como está?**",
             "timestamp": "2026-11-17T17:37:08.468013-03:00"
+        },
+        {
+            "input": "Eu estou bem também",
+            "response": "**Que ótimo saber que você está bem!**  \nSe houver algo específico que queira conversar, alguma curiosidade ou necessidade de ajuda, é só me dizer. Estou aqui para ajudar no que precisar. 😊",
+            "timestamp": "2026-11-17T17:37:36.072036-03:00"
         }
     ]
 }

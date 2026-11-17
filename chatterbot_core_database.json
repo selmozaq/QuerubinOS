@@ -395,6 +395,11 @@
             "input": "Analize a imagem e Faça uma descrição do ambiente",
             "response": "Desculpe, mas no momento não consigo visualizar imagens enviadas.  \n\nPara que eu possa analisar e descrever o ambiente, por favor forneça detalhes como:\n\n- **Cores predominantes** (paredes, teto, piso, objetos);\n- **Objetos presentes** (móveis, equipamentos, decoração);\n- **Posição e disposição** dos objetos (o que está à esquerda, à direita, ao fundo, etc.);\n- **Iluminação** (luz natural, lâmpadas, sombras);\n- **Texturas e materiais** (madeira, vidro, tecido);\n- **Contexto geral** (casa, escritório, loja, ao ar livre, etc.) e qualquer outro detalhe que considere relevante.\n\nCom essas informações, poderei oferecer uma descrição detalhada e uma análise do ambiente.",
             "timestamp": "2026-11-17T19:28:24.401475-03:00"
+        },
+        {
+            "input": "Gere uma imagem de um jardim paradisíaco",
+            "response": "**Prompt para gerar uma imagem de um jardim paradisíaco**\n\n```\nA breathtaking, ultra‑realistic tropical paradise garden at golden hour, with vibrant emerald-green foliage, towering palm trees, and delicate flowering vines cascading over stone arches. In the center, a crystal‑clear turquoise pond reflects the warm sunlight, surrounded by smooth white marble steps and luminous lotus flowers. Exotic birds (scarlet macaws and iridescent hummingbirds) flutter among blossoms of hibiscus, orchids, and bougainvillea in fiery reds, pinks, and oranges. A gentle waterfall flows over a moss‑covered rock into the pond, creating a soft mist. Soft, dappled sunlight filters through a canopy of dense leaves, casting intricate shadows on a path of polished cobblestones lined with lanterns that emit a warm amber glow. The atmosphere feels serene, magical, and inviting, with a subtle breeze moving the leaves and petals. Ultra‑high resolution, photorealistic, cinematic lighting, vivid colors, depth of field, 8K.\n```\n\n**Como usar:** Copie o texto acima e cole na interface de um modelo de geração de imagens (por exemplo, DALL·E, Stable Diffusion, Midjourney). Ajuste os parâmetros de estilo ou resolução conforme necessário para obter o resultado desejado.",
+            "timestamp": "2026-11-17T19:30:36.864333-03:00"
         }
     ]
 }

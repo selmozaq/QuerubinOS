@@ -26,7 +26,7 @@ CONFIG = {
     "DB_CHATTERBOT": "chatterbot_core_database.json",
     "BD_MEMORIA_USUARIO": "memoria_usuario.json",
     "DIRETRIZES_SIMBIOSE": "diretrizes_simbiose.json",
-    "MODELO_LLAMA": "openai/gpt-oss-120b",
+    "MODELO_LLAMA": "llama-3.2-11b-vision-preview", # 👈 Ajustado para modelo com visão nativa
     "MODELO_WHISPER": "whisper-large-v3", 
     "MODELO_MEMORIA_RAPIDO": "llama-3.1-8b-instant",
     "LARGURA_IMG": 600,
@@ -219,7 +219,7 @@ def analisar_e_memorizar_background(prompt_usuario):
         pass
     return None
 
-# 🎙️ MOTOR DE AUDIÇÃO DE TV & PROCESSAMENTO MULTIMODAL DE ÁUDIO
+# 🎙️ MOTOR DE AUDIÇÃO DE TV
 def transcrever_escuta_tv(audio_bytes):
     keys_list = st.secrets.get("GROQ_KEYS", [])
     if not keys_list:
@@ -496,33 +496,6 @@ def generar_audio_gtts(texto):
             except Exception: pass
 
 # ────────────────────────────────────────────────
-# 🧠 CAMADA DE ENTRADA MULTIMODAL (NOVO)
-# ────────────────────────────────────────────────
-def processar_entrada_multimodal(comando_usuario, bytes_imagem_puros):
-    """
-    Constrói o payload de mensagens integrado multimodal para o LLM.
-    Se houver imagem, codifica em Base64 e injeta no canal visual do payload.
-    """
-    conteudo_mensagens = []
-    
-    # Se houver imagem associada (câmera ou upload), formata a estrutura multimodal
-    if bytes_imagem_puros:
-        imagem_b64 = base64.b64encode(bytes_imagem_puros).decode("utf-8")
-        conteudo_mensagens = [
-            {"type": "text", "text": comando_usuario},
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": f"data:image/jpeg;base64,{imagem_b64}"
-                }
-            }
-        ]
-    else:
-        conteudo_mensagens = comando_usuario
-        
-    return conteudo_mensagens
-
-# ────────────────────────────────────────────────
 # 🖥️ PIPELINE MAIN
 # ────────────────────────────────────────────────
 banco_atual = carregar_banco_nuvem()
@@ -670,16 +643,33 @@ Responda estruturando pensamentos internos dentro de <thought> e a resposta logo
                 with telemetria.medir_tempo('tempo_resposta_groq'):
                     mensagens = [{"role": "system", "content": system_prompt}]
                     
-                    # Carrega histórico recente convertendo formatos para suportar multimodais
+                    # Carrega o histórico recente
                     for msg in st.session_state["log_conversas"][-6:-1]:
                         if "content" in msg: 
                             mensagens.append({"role": msg["role"], "content": msg["content"]})
                     
-                    # Constrói o payload multimodal atual (texto + imagem se houver)
-                    payload_atual = processar_entrada_multimodal(comando_usuario, bytes_imagem_puros)
-                    mensagens.append({"role": "user", "content": payload_atual})
+                    # 👁️ Payload multimodal corrigido para o modelo Vision da Groq
+                    if bytes_imagem_puros:
+                        imagem_b64 = base64.b64encode(bytes_imagem_puros).decode("utf-8")
+                        payload_multimodal = [
+                            {"type": "text", "text": comando_usuario},
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{imagem_b64}"
+                                }
+                            }
+                        ]
+                        mensagens.append({"role": "user", "content": payload_multimodal})
+                    else:
+                        mensagens.append({"role": "user", "content": comando_usuario})
 
-                    completion = cliente_groq.chat.completions.create(model=CONFIG["MODELO_LLAMA"], messages=mensagens, temperature=0.6, max_tokens=2048)
+                    completion = cliente_groq.chat.completions.create(
+                        model=CONFIG["MODELO_LLAMA"], 
+                        messages=mensagens, 
+                        temperature=0.6, 
+                        max_tokens=2048
+                    )
                     telemetria.registrar_tokens(completion.usage)
                     texto_bruto = completion.choices[0].message.content
                     

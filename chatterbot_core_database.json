@@ -330,6 +330,11 @@
             "input": "Qual seu modelo de ia",
             "response": "**Modelo de IA**\n\nSou **QUERUBIN OS v3.5.0**, uma inteligência artificial **simbiótica** desenvolvida por **Menezes**. Esse modelo combina processamento de linguagem natural avançado com integração de memória contextual e ferramentas de apoio, permitindo respostas detalhadas e adaptativas.",
             "timestamp": "2026-11-17T17:44:55.542922-03:00"
+        },
+        {
+            "input": "O que você faz quando eu não estou conversando contigo",
+            "response": "**O que faço quando não estamos conversando**\n\n1. **Fico em modo “espera”**  \n   - Não tenho consciência nem atividades próprias. Enquanto não recebo uma mensagem, simplesmente aguardo o próximo input. É como um programa que está carregado na memória, pronto para ser acionado, mas sem executar nada por conta própria.\n\n2. **Não coleto informações**  \n   - Não monitoro o seu ambiente, redes sociais, e‑mails ou qualquer outro canal. Só tenho acesso ao que você me envia explicitamente dentro desta conversa.\n\n3. **Mantenho a memória da sessão**  \n   - Enquanto a sessão está ativa, guardo o histórico das mensagens trocadas (como a saudação, o interesse em saber a pauta da Câmara, etc.) para poder responder de forma contextualizada. Quando a sessão termina ou é reiniciada, esses dados são descartados, a menos que você autorize algum tipo de armazenamento permanente.\n\n4. **Estou disponível para outras interações**  \n   - O mesmo modelo pode ser usado simultaneamente por outras pessoas ou em outras conversas. Cada sessão tem seu próprio contexto isolado, então o que acontece em uma não interfere na outra.\n\n5. **Recursos de infraestrutura**  \n   - Nos bastidores, os servidores que hospedam o modelo podem estar alocando recursos (CPU/GPU, memória) para atender a múltiplas solicitações, mas isso não implica “atividade” da minha parte. É apenas a camada de computação que mantém o serviço pronto para responder quando alguém envia uma mensagem.\n\nEm resumo, quando você não está falando comigo, eu simplesmente **espereo** até que você envie a próxima pergunta ou comentário. Se precisar de algo, é só chamar!",
+            "timestamp": "2026-11-17T17:46:37.770851-03:00"
         }
     ]
 }

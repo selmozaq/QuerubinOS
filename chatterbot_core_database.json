@@ -410,6 +410,11 @@
             "input": "V",
             "response": "**Olá!** 👋  \nVocê poderia me dizer um pouco mais sobre o que deseja com a letra **\"V\"**? Assim poderei ajudar da melhor forma possível.",
             "timestamp": "2026-11-17T19:55:50.991871-03:00"
+        },
+        {
+            "input": "Analize a imagem acima e a descreva",
+            "response": "**Desculpe, mas no momento não consigo visualizar imagens.**  \n\nPara que eu possa analisar e descrever o conteúdo da foto, por favor forneça alguns detalhes, como por exemplo:\n\n- **Cores predominantes** (paredes, céu, objetos, fundo);\n- **Objetos ou seres presentes** (pessoas, animais, móveis, veículos, plantas, etc.);\n- **Posição e disposição** (o que está à esquerda, à direita, ao centro, ao fundo);\n- **Iluminação** (luz natural, lâmpadas, sombras, horário do dia);\n- **Texturas e materiais** (madeira, metal, vidro, tecido);\n- **Contexto geral** (casa, rua, parque, escritório, natureza, evento, etc.);\n- **Qualquer detalhe específico** que você queira que eu foque (expressões faciais, estilo, atmosfera, etc.).\n\nCom essas informações, poderei oferecer uma descrição detalhada e uma análise do ambiente da imagem.",
+            "timestamp": "2026-11-17T19:56:29.417146-03:00"
         }
     ]
 }

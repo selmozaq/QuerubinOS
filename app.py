@@ -34,7 +34,7 @@ CONFIG = {
 }
 
 st.set_page_config(
-    page_title="Querubin OS v3.5.0",
+    page_title="Querubin OS v3.6.0 [Multimodal]",
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -219,7 +219,7 @@ def analisar_e_memorizar_background(prompt_usuario):
         pass
     return None
 
-# 🎙️ MOTOR DE AUDIÇÃO DE TV
+# 🎙️ MOTOR DE AUDIÇÃO DE TV & PROCESSAMENTO MULTIMODAL DE ÁUDIO
 def transcrever_escuta_tv(audio_bytes):
     keys_list = st.secrets.get("GROQ_KEYS", [])
     if not keys_list:
@@ -406,7 +406,7 @@ def carregar_banco_nuvem():
             with open(CONFIG["DB_CHATTERBOT"], "r", encoding="utf-8") as f: 
                 return json.load(f)
         except Exception: pass
-    return {"info": {"versao_core": "3.5.0"}, "estado_emocional": {"harmonia": 0.8, "estresse": 0.2}, "corpus_aprendido": []}
+    return {"info": {"versao_core": "3.6.0"}, "estado_emocional": {"harmonia": 0.8, "estresse": 0.2}, "corpus_aprendido": []}
 
 def salvar_banco_nuvem(dados):
     with open(CONFIG["DB_CHATTERBOT"], "w", encoding="utf-8") as f: 
@@ -496,6 +496,33 @@ def generar_audio_gtts(texto):
             except Exception: pass
 
 # ────────────────────────────────────────────────
+# 🧠 CAMADA DE ENTRADA MULTIMODAL (NOVO)
+# ────────────────────────────────────────────────
+def processar_entrada_multimodal(comando_usuario, bytes_imagem_puros):
+    """
+    Constrói o payload de mensagens integrado multimodal para o LLM.
+    Se houver imagem, codifica em Base64 e injeta no canal visual do payload.
+    """
+    conteudo_mensagens = []
+    
+    # Se houver imagem associada (câmera ou upload), formata a estrutura multimodal
+    if bytes_imagem_puros:
+        imagem_b64 = base64.b64encode(bytes_imagem_puros).decode("utf-8")
+        conteudo_mensagens = [
+            {"type": "text", "text": comando_usuario},
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{imagem_b64}"
+                }
+            }
+        ]
+    else:
+        conteudo_mensagens = comando_usuario
+        
+    return conteudo_mensagens
+
+# ────────────────────────────────────────────────
 # 🖥️ PIPELINE MAIN
 # ────────────────────────────────────────────────
 banco_atual = carregar_banco_nuvem()
@@ -504,7 +531,7 @@ diretrizes_ativas = carregar_diretrizes_simbiose()
 telemetria = Telemetria()
 
 with st.sidebar:
-    st.markdown("<h2 style='color:#9d4edd; font-size:22px;'>🤖 QUERUBIN OS v3.5.0</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#9d4edd; font-size:22px;'>🤖 QUERUBIN OS v3.6.0</h2>", unsafe_allow_html=True)
     chave_simbiotica = st.text_input("🔑 Chave de Assinatura Simbiótica", type="password")
     
     if chave_simbiotica.strip().lower() == st.secrets.get("ASSINATURA_ARQUITETO", "ecosdaalma").strip().lower():
@@ -558,7 +585,6 @@ with st.sidebar:
         st.progress(humor_atual.get("harmonia", 0.5), text=f"Harmonia: {int(humor_atual.get('harmonia', 0.5)*100)}%")
         st.progress(humor_atual.get("estresse", 0.2), text=f"Estresse: {int(humor_atual.get('estresse', 0.2)*100)}%")
 
-    # 🌌 NOVO MÓDULO VISUAL: PAISAGEM MENTAL VORONOI
     with st.expander("🌌 Paisagem Mental (Voronoi)", expanded=False):
         st.markdown("<p style='font-size:11px; color:#aaa;'>Gera o diagrama geométrico baseado no humor atual do sistema.</p>", unsafe_allow_html=True)
         if st.button("🎨 Renderizar Voronoi"):
@@ -574,7 +600,7 @@ with st.sidebar:
 
     foto_capturada = st.camera_input("👁️ Olhos do Querubin")
 
-st.markdown('<div class="fixed-header"><h1>Querubin OS</h1></div>', unsafe_allow_html=True)
+st.markdown('<div class="fixed-header"><h1>Querubin OS [Multimodal]</h1></div>', unsafe_allow_html=True)
 st.markdown('<div class="main-content-spacer"></div>', unsafe_allow_html=True)
 box_chat = st.container(height=520, border=False)
 
@@ -622,7 +648,7 @@ if comando_usuario := st.chat_input("Fale com o Querubin..."):
         url_foto_gerada = generar_imagem_ia(comando_usuario)
 
     agora_brasil = datetime.now(FUSO_BR)
-    system_prompt = f"""Você é o QUERUBIN OS v3.5.0, IA simbiótica de Menezes.
+    system_prompt = f"""Você é o QUERUBIN OS v3.6.0, IA simbiótica de Menezes.
 Data/Hora: {agora_brasil.strftime('%d/%m/%Y %H:%M:%S')}.
 Harmonia: {int(humor_atual['harmonia']*100)}% | Estresse: {int(humor_atual['estresse']*100)}%.
 {memorias_recuperadas} {contexto_web_vivo}
@@ -643,10 +669,15 @@ Responda estruturando pensamentos internos dentro de <thought> e a resposta logo
             try:
                 with telemetria.medir_tempo('tempo_resposta_groq'):
                     mensagens = [{"role": "system", "content": system_prompt}]
-                    for msg in st.session_state["log_conversas"][-6:-1]:
-                        if "content" in msg: mensagens.append({"role": msg["role"], "content": msg["content"]})
                     
-                    mensagens.append({"role": "user", "content": comando_usuario})
+                    # Carrega histórico recente convertendo formatos para suportar multimodais
+                    for msg in st.session_state["log_conversas"][-6:-1]:
+                        if "content" in msg: 
+                            mensagens.append({"role": msg["role"], "content": msg["content"]})
+                    
+                    # Constrói o payload multimodal atual (texto + imagem se houver)
+                    payload_atual = processar_entrada_multimodal(comando_usuario, bytes_imagem_puros)
+                    mensagens.append({"role": "user", "content": payload_atual})
 
                     completion = cliente_groq.chat.completions.create(model=CONFIG["MODELO_LLAMA"], messages=mensagens, temperature=0.6, max_tokens=2048)
                     telemetria.registrar_tokens(completion.usage)
